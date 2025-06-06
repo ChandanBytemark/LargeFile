@@ -27,7 +27,20 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history for tags
           
-
+      - name: Install gdown (Google Drive Downloader)
+        run: |
+          pip install gdown
+          
+      - name: Download folder from Google Drive (Public)
+        run: |
+          # Example: Download a single file (replace with your Google Drive file ID)
+          gdown --id "1zHtMxxJfKf1x73487Qv951U0qucp_b7a" --output "hacon.zip"
+          
+          # If it's a folder, you might need to zip it first on Google Drive
+          unzip hacon.zip -d ./target-directory/
+          
+          # Verify download
+          ls -lh ./target-directory/
           
       - name: Verify files
         run: |
