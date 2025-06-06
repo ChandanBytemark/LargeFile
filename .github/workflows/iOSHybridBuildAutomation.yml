@@ -37,10 +37,11 @@ jobs:
           gdown --id "1zHtMxxJfKf1x73487Qv951U0qucp_b7a" --output "hacon.zip"
           
           # If it's a folder, you might need to zip it first on Google Drive
-          unzip -x "__MACOSX/*" hacon.zip
+          unzip hacon.zip
           
           # Remove the ZIP file after extraction (cleanup)
           rm hacon.zip
+          rm -rf __MACOSX # Remove any Mac-specific metadata directories
           
           # Verify download
           ls -lh
