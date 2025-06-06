@@ -41,6 +41,7 @@ jobs:
           
           # Remove the ZIP file after extraction (cleanup)
           rm hacon.zip
+          rm __MACOSX # Remove any Mac-specific metadata directories
           
           # Verify download
           ls -lh
