@@ -39,6 +39,9 @@ jobs:
           # If it's a folder, you might need to zip it first on Google Drive
           unzip hacon.zip
           
+          # Remove the ZIP file after extraction (cleanup)
+          rm downloaded_file.zip
+          
           # Verify download
           ls -lh
           
