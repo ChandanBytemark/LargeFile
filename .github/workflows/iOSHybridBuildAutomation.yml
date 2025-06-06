@@ -1,0 +1,38 @@
+name: iOS Hybrid Automated Build Process
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch_name:
+        description: 'Branch name'
+        required: true
+        type: string
+      release_notes:
+        description: 'Release Notes'
+        required: true
+        type: string
+        
+env:
+  XCODE_VERSION: '16.2' # Specify your Xcode version
+  BUILD_DIRECTORY: 'Build' # The target directory for the IPA
+
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 30 # Add timeout to prevent hanging
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for tags
+          
+
+          
+      - name: Verify files
+        run: |
+          ls -lh  # Check file sizes
+          cd HAFASLib/HAFASLib.framework/
+          ls -lh  # Check file sizes
+          cd ../../ # Go back to the root directory
+
